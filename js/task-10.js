@@ -26,9 +26,8 @@ function createBoxes(iterator) {
     counter += 1;
     boxesEl.insertAdjacentHTML("beforeend", `<div></div>`);
   }
-  const arrayDiv = [...boxesEl.querySelectorAll("div")];
 
-  arrayDiv.reduce((previousValue, { style }) => {
+  [...boxesEl.querySelectorAll("div")].reduce((previousValue, { style }) => {
     (style.width = `${previousValue + 10}px`),
       (style.height = `${previousValue + 10}px`),
       (style.backgroundColor = getRandomHexColor());

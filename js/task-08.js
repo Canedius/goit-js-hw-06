@@ -4,18 +4,15 @@ formEl.addEventListener("submit", onSubmit);
 
 function onSubmit(event) {
   event.preventDefault();
-  const formElemetPass = event.currentTarget.elements.password.value;
-  const formElementEmail = event.currentTarget.elements.email.value;
-
-  const formData = new FormData(event.currentTarget);
-  formData.forEach((value, name) => {
-    if (!formElemetPass && formElementEmail) {
-      return alert("Все поля должны быть заполнены!");
-    }
-    const obj = {
-      [name]: value,
-    };
-    console.log(obj);
-    formEl.reset();
-  });
+  const Password = event.currentTarget.elements.password.value;
+  const Email = event.currentTarget.elements.email.value;
+  if (!Password || !Email) {
+    return alert("Все поля должны быть заполнены!");
+  }
+  const obj = {
+    password,
+    email,
+  };
+  console.log(obj);
+  formEl.reset();
 }

@@ -10,8 +10,8 @@ function onSubmit(event) {
     return alert("Все поля должны быть заполнены!");
   }
   const obj = {
-    password,
-    email,
+    Password,
+    Email,
   };
   console.log(obj);
   formEl.reset();

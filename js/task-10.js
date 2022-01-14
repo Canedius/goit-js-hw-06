@@ -3,6 +3,7 @@ const inputEl = controls.firstElementChild;
 const createBtnEl = controls.querySelector("button");
 const destroyBtnEl = controls.lastElementChild;
 const boxesEl = document.querySelector("#boxes");
+const fragment = document.createDocumentFragment();
 
 createBtnEl.addEventListener("click", makeMagic);
 destroyBtnEl.addEventListener("click", (event) => {
@@ -24,8 +25,11 @@ function createBoxes(iterator) {
   let counter = 0;
   while (counter < iterator) {
     counter += 1;
-    boxesEl.insertAdjacentHTML("beforeend", `<div></div>`);
+    const divEl = document.createElement("div");
+    fragment.appendChild(divEl);
   }
+
+  boxesEl.append(fragment);
 
   [...boxesEl.querySelectorAll("div")].reduce((previousValue, { style }) => {
     (style.width = `${previousValue + 10}px`),
